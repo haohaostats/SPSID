@@ -45,7 +45,6 @@ python SPSID/plot_dream5_results.py
 - [Requirements & Installation](#requirements--installation)
 - [Reproducible Pipelines](#reproducible-pipelines)
 - [Outputs & Where to Find Them](#outputs--where-to-find-them)
-- [Method at a Glance](#method-at-a-glance)
 - [License](#license)
 - [Maintainer](#maintainer)
 
@@ -132,19 +131,6 @@ python SPSID/plot_dream5_results.py
 - `improvement_overall_median_iqr.csv`
 - `friedman_nemenyi_summary.csv`
 - Publication-ready plots
-
----
-
-## Method at a Glance
-
-```mermaid
-flowchart LR
-  A[Noisy network W_obs] --> B[Preprocess\n(ε-stabilization)]
-  B --> C[Row-stochastic P_obs]
-  C --> D[Single-parameter\nshrinkage inverse diffusion]
-  D --> E[Direct-edge estimate W_dir]
-  E --> F[Ranking & Evaluation\n(AUROC/AUPR, rank-score)]
-```
 
 ---
 
