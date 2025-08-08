@@ -1,0 +1,102 @@
+{
+  "AUROC": {
+    "SPSID": {
+      "SPSID": 0,
+      "RENDOR": 0,
+      "ND": 0,
+      "NE": 1,
+      "Silencer": 1,
+      "ICM": 1
+    },
+    "RENDOR": {
+      "SPSID": 0,
+      "RENDOR": 0,
+      "ND": 0,
+      "NE": 0,
+      "Silencer": 1,
+      "ICM": 1
+    },
+    "ND": {
+      "SPSID": 0,
+      "RENDOR": 0,
+      "ND": 0,
+      "NE": 0,
+      "Silencer": 1,
+      "ICM": 1
+    },
+    "NE": {
+      "SPSID": 1,
+      "RENDOR": 0,
+      "ND": 0,
+      "NE": 0,
+      "Silencer": 0,
+      "ICM": 1
+    },
+    "Silencer": {
+      "SPSID": 1,
+      "RENDOR": 1,
+      "ND": 1,
+      "NE": 0,
+      "Silencer": 0,
+      "ICM": 0
+    },
+    "ICM": {
+      "SPSID": 1,
+      "RENDOR": 1,
+      "ND": 1,
+      "NE": 1,
+      "Silencer": 0,
+      "ICM": 0
+    }
+  },
+  "AUPR": {
+    "SPSID": {
+      "SPSID": 0,
+      "RENDOR": 1,
+      "ND": 0,
+      "NE": 0,
+      "Silencer": 1,
+      "ICM": 1
+    },
+    "RENDOR": {
+      "SPSID": 1,
+      "RENDOR": 0,
+      "ND": 0,
+      "NE": 0,
+      "Silencer": 1,
+      "ICM": 0
+    },
+    "ND": {
+      "SPSID": 0,
+      "RENDOR": 0,
+      "ND": 0,
+      "NE": 0,
+      "Silencer": 1,
+      "ICM": 1
+    },
+    "NE": {
+      "SPSID": 0,
+      "RENDOR": 0,
+      "ND": 0,
+      "NE": 0,
+      "Silencer": 1,
+      "ICM": 1
+    },
+    "Silencer": {
+      "SPSID": 1,
+      "RENDOR": 1,
+      "ND": 1,
+      "NE": 1,
+      "Silencer": 0,
+      "ICM": 0
+    },
+    "ICM": {
+      "SPSID": 1,
+      "RENDOR": 0,
+      "ND": 1,
+      "NE": 1,
+      "Silencer": 0,
+      "ICM": 0
+    }
+  }
+}

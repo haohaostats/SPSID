@@ -1,0 +1,31 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.$py.class
+
+# Virtual environments
+.venv/
+.conda/
+env/
+venv/
+*.egg-info/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Data: keep structure, ignore payloads
+SPSID/data/**
+!SPSID/data/
+!SPSID/data/README.md
+!SPSID/data/**/.gitkeep
+!SPSID/data/dream5/
+!SPSID/data/dream5/Gold_Standard/
+!SPSID/data/dream5/GRN_Network/
+
+# Results (optional ignore big artifacts)
+#SPSID/results/**
+# but keep metadata/csv if you want:
+#!SPSID/results/**/*.csv
