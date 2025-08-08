@@ -43,7 +43,6 @@ python SPSID/plot_dream5_results.py
 - [Highlights](#highlights)
 - [Repository Structure](#repository-structure)
 - [Requirements & Installation](#requirements--installation)
-- [Data Setup](#data-setup)
 - [Reproducible Pipelines](#reproducible-pipelines)
 - [Outputs & Where to Find Them](#outputs--where-to-find-them)
 - [Method at a Glance](#method-at-a-glance)
@@ -100,19 +99,6 @@ source .venv/bin/activate
 
 pip install -r requirements.txt
 ```
-
----
-
-## Data Setup
-
-### DREAM5 (for DREAM5 pipeline only)
-1) Obtain **DREAM5 Network Inference** datasets from **Synapse** (ID `syn2787211`).  
-2) Place files under:
-```bash
-SPSID/data/dream5/Gold_Standard/
-SPSID/data/dream5/GRN_Network/
-```
-3) Check `SPSID/config_dream5.py` for expected filenames.
 
 ---
 
