@@ -7,7 +7,7 @@
 
 **SPSID** is a novel network denoising framework designed to accurately infer gene regulatory networks (GRNs) by filtering structural noise from transitive correlations. This repository contains the official implementation of the method described in our manuscript.
 
----
+---  
 
 ## 🚀 Quick Reproduction Guide
 
