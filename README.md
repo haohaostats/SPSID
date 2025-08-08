@@ -1,4 +1,3 @@
-
 # SPSID: Single-Parameter Shrinkage Inverse Diffusion for GRN Denoising
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
@@ -6,28 +5,48 @@
 ![OS](https://img.shields.io/badge/OS-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)
 ![Status](https://img.shields.io/badge/Status-Research%20Code-orange.svg)
 
-**SPSID** is a lightweight inverse-diffusion filter that denoises genome-wide **gene regulatory networks (GRNs)** with a **single shrinkage parameter**.  
-This repository provides **reproducible pipelines** for **simulation studies** and the **DREAM5** benchmark, including analysis and publication-quality plots.
-
-> TL;DR: Put data under `SPSID/data/...`, install requirements, run `python SPSID/run_*` scripts, and figures/tables will appear under `SPSID/results/`.
+**SPSID** is a novel and robust network denoising framework designed to accurately infer gene regulatory networks (GRNs) by filtering structural noise from transitive correlations. This repository contains the official implementation of the method described in our manuscript.
 
 ---
 
-## Table of Contents
+## 🚀 Quick Reproduction Guide
+
+> **Note:** Data has already been placed under:
+> ```
+> SPSID/data/dream5/Gold_Standard/
+> SPSID/data/dream5/GRN_Network/
+> ```
+> You can run the pipelines directly.
+
+### 1. Simulation Pipeline
+```bash
+python SPSID/run_simulation.py
+python SPSID/analyze_simulation_results.py
+python SPSID/plot_simulation_results.py
+```
+**Outputs:** `SPSID/results/simulation/` — CSV tables, sensitivity analyses, and publication-ready plots.
+
+### 2. DREAM5 Evaluation Pipeline
+```bash
+python SPSID/run_dream5_evaluation.py
+python SPSID/analyze_dream5_results.py
+python SPSID/plot_dream5_results.py
+```
+**Outputs:** `SPSID/results/dream5/` — AUROC/AUPR scores, rank-scores, statistical test results, improvement summaries, and publication-ready plots.
+
+---
+
+## 📚 Full Guide
+
+### Table of Contents
 
 - [Highlights](#highlights)
 - [Repository Structure](#repository-structure)
 - [Requirements & Installation](#requirements--installation)
 - [Data Setup](#data-setup)
 - [Reproducible Pipelines](#reproducible-pipelines)
-  - [1) Simulation](#1-simulation)
-  - [2) DREAM5 Evaluation](#2-dream5-evaluation)
 - [Outputs & Where to Find Them](#outputs--where-to-find-them)
-- [Configuration Files](#configuration-files)
 - [Method at a Glance](#method-at-a-glance)
-- [Reproducibility Tips](#reproducibility-tips)
-- [FAQ / Troubleshooting](#faq--troubleshooting)
-- [Citation](#citation)
 - [License](#license)
 - [Maintainer](#maintainer)
 
@@ -51,36 +70,34 @@ SPSID/
 ├─ run_dream5_evaluation.py
 ├─ analyze_dream5_results.py
 ├─ plot_dream5_results.py
-├─ methods.py                # SPSID and baseline methods
+├─ methods.py
 ├─ utils.py
 ├─ utils_dream5.py
-├─ config_simulation.py      # knobs for the simulation pipeline
-├─ config_dream5.py          # expected filenames/paths for DREAM5
+├─ config_simulation.py
+├─ config_dream5.py
 ├─ data/
 │  └─ dream5/
-│     ├─ Gold_Standard/      # place DREAM5 gold-standard files here
-│     └─ GRN_Network/        # place inferred networks here
+│     ├─ Gold_Standard/
+│     └─ GRN_Network/
 └─ results/
-   ├─ simulation/            # generated figures & CSVs
-   └─ dream5/                # generated figures & CSVs
+   ├─ simulation/
+   └─ dream5/
 ```
 
 ---
 
 ## Requirements & Installation
 
-- **Python**: 3.9 or newer
+- **Python**: 3.9 or newer  
 - Works on **Linux / macOS / Windows**
 
 ```bash
-# 1) (Recommended) create and activate a clean environment
 python -m venv .venv
 # Windows:
 .venv\Scripts\activate
 # macOS/Linux:
 source .venv/bin/activate
 
-# 2) Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -88,73 +105,47 @@ pip install -r requirements.txt
 
 ## Data Setup
 
-### DREAM5 (required only for the DREAM5 pipeline)
-
-1) Obtain **DREAM5 Network Inference** datasets (gold standards and inferred networks) from **Synapse**  
-   (dataset commonly referenced as: *DREAM5 Network Inference Challenge*, e.g., ID `syn2787211`).  
-2) Place the files under:
+### DREAM5 (for DREAM5 pipeline only)
+1) Obtain **DREAM5 Network Inference** datasets from **Synapse** (ID `syn2787211`).  
+2) Place files under:
 ```bash
-SPSID/data/dream5/Gold_Standard/   # gold-standard edge lists
-SPSID/data/dream5/GRN_Network/     # inferred networks from GRN methods
+SPSID/data/dream5/Gold_Standard/
+SPSID/data/dream5/GRN_Network/
 ```
-3) Verify the **expected filenames/paths** in `SPSID/config_dream5.py`.  
-   Adjust that file if your local filenames differ.
+3) Check `SPSID/config_dream5.py` for expected filenames.
 
 ---
 
 ## Reproducible Pipelines
 
-### 1) Simulation
-
+### Simulation
 ```bash
 python SPSID/run_simulation.py
 python SPSID/analyze_simulation_results.py
 python SPSID/plot_simulation_results.py
 ```
 
-Generates:
-- Synthetic networks and noisy observations
-- Denoised networks by SPSID and baselines
-- AUROC/AUPR, summary stats
-- Figures and tables in `SPSID/results/simulation/`
-
----
-
-### 2) DREAM5 Evaluation
-
+### DREAM5
 ```bash
 python SPSID/run_dream5_evaluation.py
 python SPSID/analyze_dream5_results.py
 python SPSID/plot_dream5_results.py
 ```
 
-Generates:
-- Denoised DREAM5 networks
-- AUROC/AUPR, rank-score
-- Statistical tests
-- Figures and tables in `SPSID/results/dream5/`
-
 ---
 
 ## Outputs & Where to Find Them
 
-**Simulation** (`SPSID/results/simulation/`):
+**Simulation (`SPSID/results/simulation/`):**
 - `performance_comparison_results.csv`
 - `lambda_sensitivity_summary.csv`
 - `Figure_2.png`, `Figure_3.png`
 
-**DREAM5** (`SPSID/results/dream5/`):
+**DREAM5 (`SPSID/results/dream5/`):**
 - `dream5_overall_scores.csv`
 - `improvement_overall_median_iqr.csv`
 - `friedman_nemenyi_summary.csv`
 - Publication-ready plots
-
----
-
-## Configuration Files
-
-- `SPSID/config_simulation.py` — controls synthetic network size, sparsity, noise, SPSID parameter(s)  
-- `SPSID/config_dream5.py` — expected filenames/paths for DREAM5 datasets
 
 ---
 
@@ -171,42 +162,11 @@ flowchart LR
 
 ---
 
-## Reproducibility Tips
-
-- Fix random seeds for simulation
-- Keep DREAM5 data layout as in `config_dream5.py`
-- Do not commit large datasets
-
----
-
-## FAQ / Troubleshooting
-
-**Q1:** File not found for DREAM5 → Check `config_dream5.py` paths  
-**Q2:** Missing plots/CSVs → Run scripts in order (run → analyze → plot)
-
----
-
-## Citation
-
-```
-@software{chen2025_spsid,
-  author  = {Hao Chen and collaborators},
-  title   = {SPSID: Single-Parameter Shrinkage Inverse Diffusion for GRN Denoising},
-  year    = {2025},
-  version = {v0.1.0},
-  url     = {https://github.com/haohaostats/SPSID}
-}
-```
-
----
-
 ## License
-
 MIT License — see [LICENSE](LICENSE)
 
 ---
 
 ## Maintainer
-
 - hao hao ([@haohaostats](https://github.com/haohaostats))
 
